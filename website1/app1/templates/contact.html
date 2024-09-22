@@ -1,0 +1,83 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %}Contact page{% endblock %}
+
+{% block content %}
+
+<section class="contact1">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <div class="inbox7">
+
+          <h1 class="text-center">Contact Us</h1>
+          <hr>
+          <div class="row">
+          <div class="innerbox1">
+        <div><h4><i class="bi bi-geo-alt-fill"></i>&nbsp; Address:</h4></i>                 
+         <p>295 witting street ,Melbourne,Australlia</p>
+        </div>
+         </div>
+        </div>
+
+          <div class="row">
+            <div class="innerbox2">
+          <h4><i class="bi bi-telephone"></i> &nbsp;  Phone:</h4></i>
+          <span>091-4433556 </span>
+          &nbsp; 
+          <span> 091-8877886</span>
+        </div>
+      </div>
+      
+
+        <div class="row">
+          <div class="innerbox3">
+           <h4> <i class="bi bi-envelope"></i>&nbsp; Email:</h4>
+          <span>andrews@gmail.com</span>
+          &nbsp; 
+          <span>hello@hotmail.com</span>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+
+      <div class="col-6 mx-auto">
+        <div class="inbox8">
+   <h1> Or Write Us</h1>
+   <hr>
+
+        <form action="/contact" method="post">
+          {% csrf_token %}
+          <div class="name">
+            <label for="name">Name:</label>
+            <input type="name" class="form-control" id="name" placeholder="Enter name" name="name">
+          </div>
+          <br>
+          <div class="phnnumber">
+            <label for="phone number">Phone Number:</label>
+            <input type="number" class="form-control" id="phnnumber" placeholder="Enter phone number"
+              name="phone_number">
+            <br>
+          </div>
+
+          <div class="mb-3 mt-3">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+          </div>
+          <div class="message">
+            <label for="message">Message:</label>
+            <input type="text" class="form-control" id="email" placeholder="Enter message" name="message">
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+{% endblock %}

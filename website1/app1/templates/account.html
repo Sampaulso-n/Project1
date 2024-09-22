@@ -1,0 +1,109 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %} Account page {% endblock %}
+
+{% block content %}
+
+<style>
+
+</style>
+
+<div class="row">
+  <div class="col-sm-2">
+      
+    <div class="sidenavbar">
+
+      <div class="colsm-1" style="padding: 10px; text-align: center; " >
+        <img src="{% static 'login.webp' %}" style="width: 50px;" alt="" class="src">
+      </div>
+      <span style="font-weight: bold;">Hello,</span>
+      
+     <span style= "font-weight:  bolder; font-size: large;"> {{ user }}</span> 
+
+    <hr>
+      <ul>
+      <li><a href="{% url 'account' %}?order">Orders</a></li>
+     <li> <a href="{% url 'account' %}?wishlist">Wishlist</a></li>
+      <li><a href="{% url 'account' %}?register">Personal data </a></li>
+      <li><a href="/logout">Sign Out</a></li>
+    </ul>
+    </div>
+  </div>
+
+  <div class="col-sm-10 max-h-for-account ">
+    <div class="main" style="overflow: auto;">
+      <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-weight: bold;">My Account :</h2>
+    <br>
+    <hr>
+      {% if order %}
+      <h3>Your Orders :</h3>
+      {% for item in order %}
+      <div class="row mb-3 ">
+        <div class="col-md-4">
+          <img src="media/{{item.order_image}}" alt="Order Image" class="img-fluid" height="200" width="200px">
+        </div>
+        <div class="col-md-8">
+          <p><strong>Order ID:</strong> {{ item.id }}</p>
+          <p><strong>Order price:</strong> {{ item.order_price }}</p>
+          <p><strong>Order quantity:</strong> {{ item.order_qty }}</p>
+        
+        </div>
+      </div>
+      <hr>
+      {% endfor %}
+      {% endif %}
+
+      {% if register %}
+      <h3>Personal Details :</h3>
+      
+      {% for holder in register %}
+      <div class="row mb-3 ">
+        <div class="col-md" style="text-align: left;  color: cadetblue;">
+          <p style="font-weight:bolder ;"><strong >Name:</strong> {{ holder.registration_name }}</p>
+          <p  style="font-weight:bolder ;"><strong>Email:</strong> {{ holder.registration_email }}</p>
+          <p style="font-weight:bolder ;"><strong>Phone number:</strong> {{ holder.registration_phn }}</p>
+        
+        </div>
+      </div>
+      <hr>
+      {% endfor %}
+      {% endif %}
+
+      
+      {% if wishlist %}
+      <h3>Your wishlist :</h3>
+      {% for item in wishlist %}
+      <div class="row mb-3 ">
+        <div class="col-md-4">
+          <img src="media/{{item.wishlist_image}}" alt="Order Image" class="img-fluid" height="200" width="200px">
+        </div>
+        <div class="col-md-8">
+          <p><strong>wishlist ID:</strong> {{ item.id }}</p>
+          <p><strong>product:</strong> {{ item.wishlist_name }}</p>
+          <p><strong>wishlist price:</strong> {{ item.wishlist_price }}</p>
+    
+        </div>
+      </div>
+      <hr>
+      {% endfor %}
+      {% endif %}
+
+
+    </div>
+
+   </div>
+
+  
+  </div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

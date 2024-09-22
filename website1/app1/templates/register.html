@@ -1,0 +1,63 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title  %} register page {% endblock %}
+
+{% block content  %}
+
+<section class="register1">
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-4 mx-auto">
+      <div class="inbox9">
+
+      <h2>Register Now</h2>
+      <p>Get additional 20% OFF on your first order</p>
+      <h4>Use coupon code SIGNUP20</h4>
+      <a href="/login">
+      <button>Already Have An Account</button>
+    </a>
+
+    </div>
+  </div>
+  
+  <div class="col-4 mx-auto">
+    <div class="inbox10">
+      <h4 style="text-align: center;">REGISTER FORM</h4>
+    
+
+    <form action="/register" method="POST">
+      {% csrf_token %}
+        <div class="mb-3 mt-3">
+            <label for="name">Name:</label>
+            <input type="name" class="form-control" id="name" placeholder="Enter name" name="name">
+          </div>
+
+          <div class="mb-3 mt-3">
+            <label for="phone number">Phone Number:</label>
+            <input type="phone number" class="form-control" id="phone number" placeholder="Enter phone number" name="phone_number">
+          </div>
+
+      <div class="mb-3 mt-3">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      </div>
+      <div class="mb-3">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+      </div>
+      <div class="form-check mb-3">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" name="remember"> Remember me
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+</section>
+
+{% endblock %}

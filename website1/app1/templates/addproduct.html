@@ -1,0 +1,48 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title  %}product page{% endblock %} 
+
+{% block content %}
+<section>
+<h1>Products</h1>
+<div class="col-6 mx-auto" style="padding: 50px;">
+  
+<form action="/addproduct" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+<div class="product name">
+    <label for="product name">product name</label>
+    <input type="text" class="form-control" id="name" placeholder="Enter product name" name="product_name">
+  </div>
+  <div class="product image">
+    <label for="product image">product image</label>
+    <input type="file" class="form-control" id="product image" placeholder="upload image" name="product_image">
+  </div>
+  <div class="product price">
+    <label for="product image">product price</label>
+    <input type="text" class="form-control" id="product price" placeholder="Enter product price" name="product_price">
+  </div>
+  <div class="product description">
+    <label for="product description">product description</label>
+    <input type="text" class="form-control" id="product description" placeholder="enter product description" name="product_description">
+  </div>
+  <div class="category">
+    <label for="category name">category</label>
+    <select name="categoryname" id="">
+      {% for x in category %}
+      <option value="{{x.category_name}}">{{x.category_name}}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<div>
+</section>
+
+
+{% endblock %}
+
+
+
+

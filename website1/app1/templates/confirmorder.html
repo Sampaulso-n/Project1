@@ -1,0 +1,23 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title  %}confirm order{% endblock %} 
+
+
+
+{% block content %}
+  <div class="order-success-container">
+    <div class="order-success-content">
+      <h1>Order Successful!</h1>
+      <p>Thank you for your order, {{ user.username }}!</p>
+      <p>Your order has been received and is now being processed.</p>
+      <p>Order Number: {{ cart_proid }}</p>
+      <p>We will send you a confirmation email shortly with the details of your order.</p>
+      <a href="/" class="button">Return to Home</a>
+      <a href="/myorders" class="button">view your order list</button>
+        </a>
+    </div>
+  </div>
+{% endblock %}
+
+

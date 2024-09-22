@@ -1,0 +1,44 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title  %}login page{% endblock %} 
+
+{% block content %}
+
+<section class="login1">
+
+    
+    <form action="/login" method="POST">
+     {% csrf_token %}
+    <div class="container">
+        <div class="row">
+          <div class="col-6 mx-auto">
+           
+            <div class="inbox11">
+              
+              <h1 style="text-align: center;">LOG IN</h1>
+              
+              <img src="{% static 'login.webp' %}"   class="src1"  >
+              
+            
+
+
+            <div class="email">
+                <label for="email" style="text-align: left;">Email id</label>
+                <input type="email" class="form-control" id="name" placeholder="Enter your email id" name="email">
+              </div>
+              <div class="password">
+                <label for="">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+              </div>
+              <div>
+                <br>
+              <button type="submit" class="btn btn-danger">Submit</button>
+            </div>
+          </div> 
+    </div>
+  </div>
+</div>
+</section>
+{% endblock %}
+>

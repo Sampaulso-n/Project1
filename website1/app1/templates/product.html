@@ -1,0 +1,40 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title  %}products  page{% endblock %} 
+
+{% block content %}
+<div class="products-page">
+    <header class="products-header">
+        <h1 style="font-family: 'Times New Roman', Times, serif;">Our Products</h1>
+    </header>
+
+    <section class="products-list">
+        {% for x in products  %}
+            <div class="product-item" style="text-align: center;">
+                <div class="product-image">
+                    <img src=" /media/{{x.product_image}} " alt="{{ product.name }}">
+                </div>
+                <div class="product-info">
+                    <h2 class="product-name"> <span>{{ x.product_name}}</span</h2>
+                    <p class="product-price"><i class="bi bi-currency-rupee"></i><span>{{ x.product_price}}</span></p>
+                    <p class="product-description">{{product_description|slice:":150" }}{% if product_description|length > 150 %}...{% endif %}</p>
+                    
+                       <div> <a href="/addtocart/{{x.id}}"
+                        button type="submit" class="add-to-cart"> <i class="bi bi-cart3"></i> Add to Cart</button>
+                    </a>
+                </div>
+                    
+                </div>
+                
+                <a href='/wishlist/{{x.id}}' class="wishlist-icon">
+                    <i class="bi bi-heart-fill"></i>
+                </a>
+            </div>
+       
+        {% endfor %}
+    </section>
+</div>
+   
+
+{% endblock %}
